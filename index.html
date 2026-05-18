@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théo Belin | Professional Portfolio</title>
+    <style>
+        :root {
+            --primary: #0f172a;    /* Premium Slate */
+            --accent: #1e40af;     /* Deep Institutional Blue */
+            --accent-light: #eff6ff; /* Soft Blue Hover */
+            --text-main: #334155;  /* Balanced Charcoal text */
+            --text-muted: #64748b; /* Slate Gray for secondary text */
+            --bg: #f8fafc;         /* Crisp, clean canvas */
+            --border: #e2e8f0;     /* Subtle division lines */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* Header / Brand Identity */
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 35px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.6rem;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent);
+            margin: 0 0 20px 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            max-width: 720px;
+            margin: 0;
+        }
+
+        section {
+            margin-bottom: 45px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        /* Core Credentials Menu (List Layout) */
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px 24px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            border-color: var(--accent);
+            background-color: var(--accent-light);
+            transform: translateX(4px);
+        }
+
+        .menu-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .menu-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Portfolio Nested Directory Grid */
+        .portfolio-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .folder-icon {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--border);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            margin: 0 0 20px 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+        }
+
+        footer {
+            margin-top: 70px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Théo Belin</h1>
+            <div class="subtitle">Real Estate M&A & Infrastructure Advisory</div>
+            <p class="bio">
+                Graduate of Cornell University's Nolan School of Hotel Administration (Real Estate Minor). Current Corporate Advisory Intern at Rothschild & Co within the Global Advisory Real Estate M&A division in Paris. This site hosts primary academic credentials and technical underwriting samples compiled for recruitment evaluation.
+            </p>
+        </header>
+
+        <section>
+            <h2>Primary Credentials</h2>
+            <div class="menu-list">
+                
+                <a href="Theo_Belin_Resume.pdf" class="menu-item" target="_blank">
+                    <span class="menu-title">Curriculum Vitae</span>
+                    <span class="menu-meta">PDF Resume (Cornell / Rothschild & Co) &rarr;</span>
+                </a>
+
+                <a href="Cornell_Transcript_Theo_Belin.pdf" class="menu-item" target="_blank">
+                    <span class="menu-title">Academic Transcript</span>
+                    <span class="menu-meta">B.S. Hotel Administration, cum laude (GPA: 3.80) &rarr;</span>
+                </a>
+
+                <a href="Theo_Belin_Analyst_Cover_Letter_May_2026.pdf" class="menu-item" target="_blank">
+                    <span class="menu-title">Analyst Cover Letter</span>
+                    <span class="menu-meta">Generic Corporate Framework (Hudson Advisors) &rarr;</span>
+                </a>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="portfolio-header">
+                <span class="folder-icon">&#128193;</span>
+                <h2>Portfolio / Technical Work Samples</h2>
+            </div>
+            
+            <div class="project-grid">
+                
+                <div class="card">
+                    <div>
+                        <h3>Hotel Renovation Concept</h3>
+                        <p>A comprehensive development and programmatic evaluation regarding the Moroccan wellness spa repositioning of a NYC Upper West Side hotel asset.</p>
+                    </div>
+                    <a href="Portfolio/Conceptualization_Hotel_Renovation.pdf" class="btn" target="_blank">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Boutique Hotel Feasibility</h3>
+                        <p>A thesis-driven underwriting model, supply/demand optimization matrix, and financial projection mapping out a 72-key development in Ithaca, NY.</p>
+                    </div>
+                    <a href="Portfolio/Feasibility_Analysis_Boutique_Hotel.pdf" class="btn" target="_blank">View Analysis</a>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Théo Belin. Securely managed domain | Hosted via GitHub Pages</p>
+        </footer>
+    </div>
+
+</body>
+</html>
