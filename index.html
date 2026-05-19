@@ -30,11 +30,30 @@
             padding: 50px 20px;
         }
 
-        /* Header / Brand Identity */
+        /* Header / Brand Identity with Responsive Grid */
         header {
             border-bottom: 2px solid var(--border);
             padding-bottom: 35px;
             margin-bottom: 40px;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 40px;
+            }
+        }
+
+        .header-text {
+            flex: 1;
         }
 
         h1 {
@@ -59,6 +78,23 @@
             color: var(--text-main);
             max-width: 720px;
             margin: 0 0 22px 0;
+        }
+
+        /* Profile Headshot Styling */
+        .profile-image-container {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+            background-color: #f1f5f9;
         }
 
         /* Cover Letter Link under Bio */
@@ -509,15 +545,25 @@
 
     <div class="container">
         <header>
-            <h1>Théo Belin</h1>
-            <div class="subtitle">Aspiring Hospitality Real Estate Analyst</div>
-            <p class="bio">
-                Graduate of Cornell University's Nolan School of Hotel Administration (Real Estate Minor). Current Investment Banking Analyst Intern at Rothschild & Co within the Global Advisory Real Estate M&A division in Paris. This site hosts primary academic credentials and technical underwriting samples compiled for recruitment evaluation.
-            </p>
-            <!-- Repositioned Cover Letter Anchor -->
-            <a href="Theo_Belin_Analyst_Cover_Letter_May_2026.pdf" class="cover-letter-anchor" target="_blank">
-                View Analyst Cover Letter Framework &rarr;
-            </a>
+            <div class="header-container">
+                <!-- Textual Content Box -->
+                <div class="header-text">
+                    <h1>Théo Belin</h1>
+                    <div class="subtitle">Aspiring Hospitality Real Estate Professional</div>
+                    <p class="bio">
+                        Graduate of Cornell University's Nolan School of Hotel Administration (Real Estate Minor). Current Investment Banking Analyst Intern at Rothschild & Co within the Global Advisory Real Estate M&A division in Paris. This site hosts primary academic credentials and technical underwriting samples compiled for recruitment evaluation.
+                    </p>
+                    <!-- Repositioned Cover Letter Anchor -->
+                    <a href="Theo_Belin_Analyst_Cover_Letter_May_2026.pdf" class="cover-letter-anchor" target="_blank">
+                        View Analyst Cover Letter Framework &rarr;
+                    </a>
+                </div>
+                
+                <!-- Profile Image Box -->
+                <div class="profile-image-container">
+                    <img src="WhatsApp%20Image%202025-10-20%20at%203.45.37%20PM.jpg" alt="Théo Belin Profile Headshot" class="profile-image" onerror="this.style.display='none'">
+                </div>
+            </div>
         </header>
 
         <section>
