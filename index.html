@@ -102,6 +102,14 @@
             box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .profile-placeholder:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.15);
         }
 
         .profile-image {
@@ -579,7 +587,7 @@
                 
                 <!-- Profile Image Box with Bulletproof Layered Placeholder -->
                 <div class="profile-image-container">
-                    <div class="profile-placeholder">
+                    <div class="profile-placeholder" onclick="openPhotoModal('profileportrait.jpg', 'Théo Belin')">
                         <img src="profile.jpg" alt="Théo Belin Profile Headshot" class="profile-image" onerror="this.style.opacity='0';">
                     </div>
                 </div>
@@ -710,6 +718,19 @@
         </div>
     </div>
 
+    <!-- Hover Modal for Full-View Portrait Headshot -->
+    <div id="photoModal" class="modal-overlay">
+        <div class="modal-container" style="max-width: 480px; height: auto; max-height: 90%;">
+            <div class="modal-header">
+                <h3 class="modal-title">Professional Portrait</h3>
+                <button class="modal-close-btn" onclick="closePhotoModal()" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body" style="background: #ffffff; padding: 20px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                <img id="photoModalImg" src="" alt="Théo Belin Portrait" style="max-width: 100%; max-height: 70vh; border-radius: 6px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15); object-fit: contain;">
+            </div>
+        </div>
+    </div>
+
     <!-- Credly script loader -->
     <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
@@ -754,10 +775,36 @@
             }, 300);
         }
 
-        // Close on background click
+        // Portrait photo modal handlers
+        function openPhotoModal(imgPath, title) {
+            const modal = document.getElementById('photoModal');
+            const img = document.getElementById('photoModalImg');
+            img.src = imgPath;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop main viewport scroll
+        }
+
+        function closePhotoModal() {
+            const modal = document.getElementById('photoModal');
+            const img = document.getElementById('photoModalImg');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scroll
+            setTimeout(() => {
+                img.src = '';
+            }, 300);
+        }
+
+        // Close certificate modal on background click
         document.getElementById('certModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
+            }
+        });
+
+        // Close photo modal on background click
+        document.getElementById('photoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePhotoModal();
             }
         });
 
@@ -765,6 +812,7 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
+                closePhotoModal();
             }
         });
     </script>
