@@ -725,8 +725,17 @@
                 <h3 class="modal-title">Professional Portrait</h3>
                 <button class="modal-close-btn" onclick="closePhotoModal()" aria-label="Close modal">&times;</button>
             </div>
-            <div class="modal-body" style="background: #ffffff; padding: 20px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
-                <img id="photoModalImg" src="" alt="Théo Belin Portrait" style="max-width: 100%; max-height: 70vh; border-radius: 6px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15); object-fit: contain;">
+            <div class="modal-body" style="background: #ffffff; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; min-height: 250px;">
+                <!-- Full size image with multi-extension error handling script -->
+                <img id="photoModalImg" src="" alt="Théo Belin Portrait" style="max-width: 100%; max-height: 70vh; border-radius: 6px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15); object-fit: contain;" onerror="handlePortraitError(this)">
+                
+                <!-- Helpful User Diagnostic Container -->
+                <div id="photoFallback" style="display: none; text-align: center; padding: 20px;">
+                    <p style="color: var(--text-main); font-weight: 600; margin-bottom: 10px;">Portrait File Not Detected</p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; max-width: 340px; margin: 0 auto;">
+                        Please verify that you have successfully uploaded <strong>profileportrait.jpg</strong> (or <strong>profileportrait.png</strong>) to the root folder of your GitHub repository.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -779,9 +788,29 @@
         function openPhotoModal(imgPath, title) {
             const modal = document.getElementById('photoModal');
             const img = document.getElementById('photoModalImg');
+            const fallback = document.getElementById('photoFallback');
+            
+            img.style.display = 'block';
+            fallback.style.display = 'none';
             img.src = imgPath;
+            
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Stop main viewport scroll
+        }
+
+        // Automatically cycles through standard formats (.jpg -> .png -> .jpeg -> fallback)
+        function handlePortraitError(imgElement) {
+            if (imgElement.src.includes('profileportrait.jpg')) {
+                imgElement.src = 'profileportrait.png';
+            } else if (imgElement.src.includes('profileportrait.png')) {
+                imgElement.src = 'profileportrait.jpeg';
+            } else if (imgElement.src.includes('profileportrait.jpeg')) {
+                imgElement.src = 'profileportrait.PNG';
+            } else {
+                // Hide broken image icon, render troubleshooting text instead
+                imgElement.style.display = 'none';
+                document.getElementById('photoFallback').style.display = 'block';
+            }
         }
 
         function closePhotoModal() {
