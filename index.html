@@ -448,6 +448,78 @@
             background-color: var(--accent);
         }
 
+        /* Bottom Contact Card Grid (Aligned with primary grid constraints) */
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 788px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px 24px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1 1 280px;
+            max-width: 386px;
+            box-sizing: border-box;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            background-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.06);
+        }
+
+        .contact-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            transition: background-color 0.2s ease;
+        }
+
+        .contact-card:hover .contact-card-icon {
+            background-color: #dbeafe; /* Slightly deeper blue highlight on hover */
+        }
+
+        .contact-card-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-card-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .contact-card-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        
         /* Modal / Overlay Structure */
         .modal-overlay {
             position: fixed;
