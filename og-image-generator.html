@@ -33,7 +33,7 @@
             width: 1200px;
             height: 627px;
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            border-radius: 12px; /* Slight radius for aesthetics, though LinkedIn trims corners */
+            border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
@@ -77,109 +77,117 @@
             margin-left: 70px;
             color: #ffffff;
             z-index: 2;
+            flex-grow: 1;
         }
 
         .name {
-            font-size: 4.8rem;
+            font-size: 5rem;
             font-weight: 800;
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             letter-spacing: -1.5px;
             line-height: 1;
         }
 
         .title {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 500;
             color: #93c5fd;
-            margin: 0 0 40px 0;
+            margin: 0 0 35px 0;
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         .divider {
-            width: 80px;
+            width: 100px;
             height: 6px;
             background-color: #3b82f6;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             border-radius: 3px;
         }
 
         .credentials-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            grid-template-columns: 1fr;
+            row-gap: 22px;
+        }
+
+        @media (min-width: 900px) {
+            .credentials-grid {
+                grid-template-columns: 1fr; /* Stacked layout maximizes horizontal text bounds */
+            }
         }
 
         .cred-item {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .cred-icon {
-            width: 40px;
-            height: 40px;
+            width: 46px;
+            height: 46px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #60a5fa;
+            flex-shrink: 0;
         }
 
         .cred-text {
-            font-size: 1.3rem;
+            font-size: 1.6rem; /* Boosted scale parameter for absolute remote legibility */
             font-weight: 600;
-            color: #e2e8f0;
+            color: #ffffff;
+            letter-spacing: -0.2px;
         }
     </style>
 </head>
 <body>
 
     <div class="instructions">
-        <h2>How to use this generator:</h2>
-        <p>1. Save this file into the same folder on your computer where <strong>profileportrait.jpg</strong> is located.<br>
-           2. Open this HTML file in your web browser.<br>
-           3. Take a screenshot of the large dark blue box below. Make sure to crop it exactly to the edges of the box.<br>
-           4. Save that screenshot as <strong>portfolio-preview.jpg</strong> and upload it to your GitHub repository!</p>
+        <h2>How to use this updated generator:</h2>
+        <p>1. Save this code into the same folder on your computer where <strong>profileportrait.jpg</strong> is located.<br>
+           2. Open the file in your web browser.<br>
+           3. Take a clean screenshot cropped precisely to the edges of the dark blue banner canvas below.<br>
+           4. Save that screenshot as <strong>portfolio-preview.jpg</strong> and commit it to your GitHub root folder level!</p>
     </div>
 
-    <!-- The 1200x627 Canvas -->
-    <div class="og-canvas" id="capture-area">
+    <div class="og-canvas">
         <div class="left-column">
-            <!-- Object-position CSS handles the face cropping perfectly -->
             <img src="profileportrait.jpg" alt="Théo Belin" class="portrait">
         </div>
         
         <div class="right-column">
             <h1 class="name">Théo Belin</h1>
-            <p class="title">Hospitality Real Estate Professional</p>
+            <p class="title">Aspiring Hospitality Real Estate Professional</p>
             
             <div class="divider"></div>
             
             <div class="credentials-grid">
                 <div class="cred-item">
                     <div class="cred-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
                     </div>
-                    <span class="cred-text">AHLA & STR Analytics</span>
+                    <span class="cred-text">AHLA &amp; STR Certification in Hotel Industry Analytics (CHIA)</span>
                 </div>
                 <div class="cred-item">
                     <div class="cred-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
-                    <span class="cred-text">Eastdil Secured Training</span>
+                    <span class="cred-text">Eastdil Secured Real Estate Finance Training</span>
                 </div>
                 <div class="cred-item">
                     <div class="cred-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
                     </div>
-                    <span class="cred-text">Financial Modeling</span>
+                    <span class="cred-text">Break Into CRE Financial Modeling Bootcamp</span>
                 </div>
                 <div class="cred-item">
                     <div class="cred-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg>
                     </div>
-                    <span class="cred-text">Underwriting Portfolio</span>
+                    <span class="cred-text">B.S. Hotel Administration, cum laude — Underwriting Portfolio</span>
                 </div>
             </div>
         </div>
